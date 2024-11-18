@@ -13,8 +13,8 @@ console.log(process.env.NODE_ENV + ': ' + process.env.DATABASE_URL)
 const envSchema = z.object({
     DATABASE_URL: z.string(),
     NODE_ENV: z.enum(['development', 'test', 'production']).default('production'),
-    DATABASE_CLIENT: z.string(),
-    PORT: z.number().default(3333)
+    DATABASE_CLIENT: z.enum(['sqlite', 'pg']),
+    PORT: z.coerce.number().default(3333)
 })
 
 const _env = envSchema.safeParse(process.env)
