@@ -1,5 +1,5 @@
 node_modules
+build
 db/app.db
 .env
 .env.test
-build
